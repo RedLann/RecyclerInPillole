@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final CustomAdapter customAdapter = new CustomAdapter(oggetti);
+        final CustomAdapter customAdapter = new CustomAdapter(this, oggetti);
         recyclerView.setAdapter(customAdapter);
 
         Button add_more = findViewById(R.id.add_more);
