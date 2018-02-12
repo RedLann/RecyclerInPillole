@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CustomAdapter.RubricaItemClickedListener {
     ArrayList<OggettoStupido> oggetti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
                 customAdapter.notifyDataSetChanged(); // questo ricarica la view, meglio usare i notify piu specifici se fai spesso modifiche
             }
         });
+
+    }
+
+    @Override
+    public void itemClicked(OggettoStupido oggettoStupido) {
 
     }
 }

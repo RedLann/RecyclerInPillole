@@ -18,10 +18,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     private final Context mContext;
     private ArrayList<OggettoStupido> mDataset;
+    public RubricaItemClickedListener listener;
+
+    public interface RubricaItemClickedListener {
+        public void itemClicked(OggettoStupido oggettoStupido);
+    }
 
     public CustomAdapter(Context context, ArrayList<OggettoStupido> dataset){
         this.mDataset = dataset;
         this.mContext = context;
+        listener = (MainActivity)context;
     }
 
     @Override
@@ -39,7 +45,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         holder.setListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(mContext, "Stai cliccando "+mDataset.get(position).getNome(), Toast.LENGTH_SHORT).show();
+                listener.itemClicked(mDataset.get(position));
             }
         });
     }
